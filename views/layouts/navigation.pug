@@ -1,0 +1,11 @@
+ul.nav
+    each item in navLinks
+        li.nav-item
+            a.nav-link(href=item.url, class={active: item.title === title}, onclick=`handleClickNavLink(${JSON.stringify(item)})`)= item.title
+
+script. 
+    //- For testing only
+    function handleClickNavLink(item) {
+        const { title } = item;
+        console.log('title page', title);
+    }
