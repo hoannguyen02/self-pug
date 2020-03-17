@@ -1,11 +1,16 @@
 ul.nav
     each item in navLinks
         li.nav-item
-            a.nav-link(href=item.url, class={active: item.title === title}, onclick=`handleClickNavLink(${JSON.stringify(item)})`)= item.title
+            //- For testing object as parameter
+            a.nav-link(href=item.url, class={active: item.title === title}, onclick=`handleClickNavLink(${JSON.stringify(title)})`)= item.title
 
 script. 
-    //- For testing only
-    function handleClickNavLink(item) {
-        const { title } = item;
-        console.log('title page', title);
+    function handleClickNavLink(title) {
+        //- testing string 
+        //- console.log(`#{testInScriptTag}`)
+        //- alert(`#{testInScriptTag}`)
+        
+        //- tesing object 
+        //- const { endDate } = !{JSON.stringify(testObjectScriptTag)};
+        //- alert(endDate)
     }
