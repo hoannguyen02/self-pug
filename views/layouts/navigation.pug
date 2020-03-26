@@ -1,16 +1,16 @@
 ul.nav
     each item in navLinks
         li.nav-item
-            //- For testing object as parameter
-            a.nav-link(href=item.url, class={active: item.title === title}, onclick=`handleClickNavLink(${JSON.stringify(title)})`)= item.title
+            a.nav-link(href=item.url, class={active: item.title === title})= item.title
 
 script. 
-    function handleClickNavLink(title) {
-        //- testing string 
-        //- console.log(`#{testInScriptTag}`)
-        //- alert(`#{testInScriptTag}`)
-        
-        //- tesing object 
-        //- const { endDate } = !{JSON.stringify(testObjectScriptTag)};
-        //- alert(endDate)
+    const headerElement = document.getElementsByTagName('header')[0];
+    if(headerElement) {
+        window.addEventListener('scroll', function(e) {
+            if(window.scrollY > headerElement.scrollTop) {
+                headerElement.classList.add('sticky')
+            } else {
+                headerElement.classList.remove('sticky')
+            }
+        })
     }
